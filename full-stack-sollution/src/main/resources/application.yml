@@ -1,0 +1,25 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+frontend:
+  homePageUrl: "https://openweathermap.org/"
+  headless: false
+  timeout: 5000
+  browserSize: "1920x1680"
+  browser: "firefox"
+backend:
+  apiUrl: "https://backend-interview.tools.gcp.viesure.io/"
+---
+spring:
+  config:
+    activate:
+      on-profile: cicd
+frontend:
+  homePageUrl: "https://openweathermap.org/"
+  headless: true
+  timeout: 5000
+  browserSize: "1920x1680"
+  browser: "firefox"
+backend:
+  apiUrl: "https://backend-interview.tools.gcp.viesure.io/"
