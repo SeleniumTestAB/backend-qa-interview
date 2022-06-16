@@ -3,7 +3,7 @@ name: CICD for Viesure Test challenge
 on:
   pull_request:
     branches:
-      - master
+      - main
   workflow_dispatch:
     inputs:
       logLevel:
@@ -17,7 +17,8 @@ on:
 jobs:
   build:
     env:
-      REPORT_PATH: target/allure-results
+      REPORT_PATH: full-stack-sollution/target/allure-results
+      POM_PATH: full-stack-sollution/pom.xml
     runs-on: ubuntu-latest
 
     steps:
@@ -41,12 +42,12 @@ jobs:
       #          sudo apt-get install firefox-trunk
       - name: Run Test with Firefox
         if: always()
-        run: mvn clean test -Dspring.profiles.active=cicd-firefox
+        run: mvn clean test -Dspring.profiles.active=cicd-firefox --file $POM_PATH
         continue-on-error: true
 
       - name: Run Test with Chrome
         if: always()
-        run: mvn test -Dspring.profiles.active=cicd-chrome
+        run: mvn test -Dspring.profiles.active=cicd-chrome  --file $POM_PATH
         continue-on-error: true
 
       - name: Get Allure history
