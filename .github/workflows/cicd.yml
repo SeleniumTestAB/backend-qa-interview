@@ -62,7 +62,7 @@ jobs:
         uses: simple-elf/allure-report-action@master
         if: always()
         with:
-          allure_results: ${{ REPORT_PATH }}
+          allure_results: ${{ env.REPORT_PATH }}
           allure_history: allure-history
 
       - name: Deploy report to Github Pages
