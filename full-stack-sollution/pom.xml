@@ -27,6 +27,7 @@
         <webdrivermanager.version>5.2.0</webdrivermanager.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <nv-i18n.version>1.29</nv-i18n.version>
+        <aspectjweaver.version>1.9.7</aspectjweaver.version>
     </properties>
     <dependencies>
 
@@ -69,6 +70,10 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
         </dependency>
 
         <!-- allure report dependencies -->
@@ -167,6 +172,13 @@
             <artifactId>nv-i18n</artifactId>
             <version>${nv-i18n.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+        </dependency>
+
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -194,28 +206,24 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <properties>
                         <property>
                             <name>junit</name>
                             <value>false</value>
                         </property>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>6</value>
+                        </property>
                     </properties>
-<!--                    <properties>-->
-<!--                        <property>-->
-<!--                            <name>dataproviderthreadcount</name>-->
-<!--                            <value>2</value>-->
-<!--                        </property>-->
-<!--                    </properties>-->
                     <includes>
                         <include>**/CucumberRunnerTest.*</include>
                     </includes>
                 </configuration>
                 <dependencies>
-<!--                    <dependency>-->
-<!--                        <groupId>org.junit.jupiter</groupId>-->
-<!--                        <artifactId>junit-jupiter-engine</artifactId>-->
-<!--                        <version>${junit.engine.version}</version>-->
-<!--                    </dependency>-->
                     <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
                         <artifactId>surefire-testng</artifactId>

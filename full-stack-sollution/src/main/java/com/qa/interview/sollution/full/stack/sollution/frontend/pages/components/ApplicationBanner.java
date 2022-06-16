@@ -3,6 +3,7 @@ package com.qa.interview.sollution.full.stack.sollution.frontend.pages.component
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
+import com.qa.interview.sollution.full.stack.sollution.custom.annotations.common.LazilyWired;
 import com.qa.interview.sollution.full.stack.sollution.custom.annotations.frontend.PageComponent;
 import com.qa.interview.sollution.full.stack.sollution.frontend.utils.ElementFinderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import javax.annotation.PostConstruct;
 @PageComponent
 public class ApplicationBanner {
 
-    @Autowired
+    @LazilyWired
     private ElementFinderUtil elementFinderUtil;
 
     private SelenideElement root;

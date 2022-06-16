@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.SelenideElement;
+import com.qa.interview.sollution.full.stack.sollution.custom.annotations.common.LazilyWired;
 import com.qa.interview.sollution.full.stack.sollution.custom.annotations.frontend.PageComponent;
 import com.qa.interview.sollution.full.stack.sollution.frontend.pages.CityWeatherPage;
 import com.qa.interview.sollution.full.stack.sollution.frontend.utils.ElementFinderUtil;
@@ -14,10 +15,10 @@ import javax.annotation.PostConstruct;
 @PageComponent
 public class SearchBar {
 
-    @Autowired
+    @LazilyWired
     private ElementFinderUtil elementFinderUtil;
 
-    @Autowired
+    @LazilyWired
     private SearchDropdown searchDropdown;
 
     private SelenideElement root;

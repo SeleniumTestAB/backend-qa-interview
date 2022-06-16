@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import com.neovisionaries.i18n.LocaleCode;
+import com.qa.interview.sollution.full.stack.sollution.custom.annotations.common.LazilyWired;
 import com.qa.interview.sollution.full.stack.sollution.custom.annotations.frontend.PageComponent;
 import com.qa.interview.sollution.full.stack.sollution.frontend.utils.ElementFinderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import java.util.TimeZone;
 @PageComponent
 public class CityCurrentForecast {
 
-    @Autowired
+    @LazilyWired
     private ElementFinderUtil elementFinderUtil;
 
     private SelenideElement root;

@@ -9,12 +9,14 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
+@Lazy
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class WeatherService {
 
@@ -39,6 +41,7 @@ public class WeatherService {
 
     private RequestSpecification specification() {
         return RestAssured.with().accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
                 .baseUri(testConfig.getBackendConfig().getApiUrl())
                 .basePath("/weather")
                 .log().all()

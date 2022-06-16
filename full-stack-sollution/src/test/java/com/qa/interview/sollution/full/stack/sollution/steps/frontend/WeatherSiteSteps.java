@@ -1,7 +1,6 @@
 package com.qa.interview.sollution.full.stack.sollution.steps.frontend;
 
 import com.neovisionaries.i18n.CountryCode;
-import com.neovisionaries.i18n.LocaleCode;
 import com.qa.interview.sollution.full.stack.sollution.custom.annotations.common.LazilyWired;
 import com.qa.interview.sollution.full.stack.sollution.frontend.dictonary.CityDict;
 import com.qa.interview.sollution.full.stack.sollution.frontend.pages.CityWeatherPage;
@@ -66,4 +65,5 @@ public class WeatherSiteSteps {
         foundCityPage.getCurrentForecast().verifyCityNameField(expectedCityName);
         foundCityPage.getCurrentForecast().verifyCurrentTimeDisplayed(CityDict.SYDNEY_AU.getZoneId(), CityDict.SYDNEY_AU.getCountry());
     }
+
 }

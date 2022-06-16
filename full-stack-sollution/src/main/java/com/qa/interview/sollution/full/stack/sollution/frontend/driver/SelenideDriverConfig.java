@@ -9,15 +9,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
-@Lazy
+
 @Configuration
-@Scope
+@Lazy
 public class SelenideDriverConfig {
 
     @Autowired
     private TestConfig testConfig;
 
     @Bean
+    @Scope("driver_scope")
     public SelenideDriver selenideDriver() {
         return new SelenideDriver(driverConfig());
     }

@@ -1,19 +1,22 @@
 package com.qa.interview.sollution.full.stack.sollution.frontend.pages;
 
 import com.codeborne.selenide.SelenideDriver;
+import com.qa.interview.sollution.full.stack.sollution.custom.annotations.common.LazilyWired;
 import com.qa.interview.sollution.full.stack.sollution.frontend.pages.components.ApplicationBanner;
 import com.qa.interview.sollution.full.stack.sollution.frontend.pages.components.SearchBar;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
+
 @Getter
 public abstract class BasePage {
 
-    @Autowired
+    @LazilyWired
     protected SelenideDriver selenideDriver;
 
-    @Autowired
+    @LazilyWired
     protected SearchBar searchBar;
 
-    @Autowired
+    @LazilyWired
     protected ApplicationBanner banner;
+
+
 }

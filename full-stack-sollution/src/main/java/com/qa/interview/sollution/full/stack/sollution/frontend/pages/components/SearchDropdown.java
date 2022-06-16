@@ -2,10 +2,9 @@ package com.qa.interview.sollution.full.stack.sollution.frontend.pages.component
 
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
+import com.qa.interview.sollution.full.stack.sollution.custom.annotations.common.LazilyWired;
 import com.qa.interview.sollution.full.stack.sollution.frontend.pages.CityWeatherPage;
 import com.qa.interview.sollution.full.stack.sollution.frontend.utils.ElementFinderUtil;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -14,10 +13,10 @@ import javax.annotation.PostConstruct;
 @Component
 public class SearchDropdown {
 
-    @Autowired
+    @LazilyWired
     private ElementFinderUtil elementFinderUtil;
 
-    @Autowired
+    @LazilyWired
     private ApplicationContext ctx;
 
     private SelenideElement root;
