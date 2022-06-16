@@ -1,0 +1,7 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","","","1","0","4","0","0"
+"","Frontend for OpenWeather","Proper banner text displays on Home Page","0","0","1","0","0"
+"","Weather API Smoke tests","Weather should change based on temperature","9","0","4","0","0"
+"","Weather API Smoke tests","Weather should change based on condition","3","0","2","0","0"
+"","Weather API Regression tests","Weather API should throw error for non-existing condition","0","0","1","0","0"
+"","Frontend for OpenWeather","Proper information is displayed on current forecast for Sydney, AU","1","0","0","0","0"
