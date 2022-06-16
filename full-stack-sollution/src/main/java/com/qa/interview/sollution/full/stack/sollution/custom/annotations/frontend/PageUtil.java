@@ -1,6 +1,5 @@
 package com.qa.interview.sollution.full.stack.sollution.custom.annotations.frontend;
 
-
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
@@ -14,5 +13,5 @@ import java.lang.annotation.*;
 @Documented
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PageComponent {
+public @interface PageUtil {
 }

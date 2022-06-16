@@ -26,6 +26,7 @@
         <jackson.version>2.13.3</jackson.version>
         <webdrivermanager.version>5.2.0</webdrivermanager.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <nv-i18n.version>1.29</nv-i18n.version>
     </properties>
     <dependencies>
 
@@ -132,6 +133,12 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -155,6 +162,11 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.neovisionaries</groupId>
+            <artifactId>nv-i18n</artifactId>
+            <version>${nv-i18n.version}</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -164,6 +176,7 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -180,17 +193,35 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
-<!--                <configuration>-->
+                <configuration>
+                    <properties>
+                        <property>
+                            <name>junit</name>
+                            <value>false</value>
+                        </property>
+                    </properties>
 <!--                    <properties>-->
 <!--                        <property>-->
 <!--                            <name>dataproviderthreadcount</name>-->
 <!--                            <value>2</value>-->
 <!--                        </property>-->
 <!--                    </properties>-->
-<!--                    <includes>-->
-<!--                        <include>com.udemy.spring.springselenium.CucumberRunner</include>-->
-<!--                    </includes>-->
-<!--                </configuration>-->
+                    <includes>
+                        <include>**/CucumberRunnerTest.*</include>
+                    </includes>
+                </configuration>
+                <dependencies>
+<!--                    <dependency>-->
+<!--                        <groupId>org.junit.jupiter</groupId>-->
+<!--                        <artifactId>junit-jupiter-engine</artifactId>-->
+<!--                        <version>${junit.engine.version}</version>-->
+<!--                    </dependency>-->
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-testng</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
