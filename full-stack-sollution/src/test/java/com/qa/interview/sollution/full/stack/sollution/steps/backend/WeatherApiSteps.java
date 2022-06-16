@@ -60,7 +60,7 @@ public class WeatherApiSteps {
     @Then("the condition with {string} is as expected")
     public void theConditionChangedAsExpected(String conditionName) {
         assertThat(actualWeather.condition()).isEqualTo(conditionName);
-        assertThat(actualWeather.icon()).isEqualTo(conditionName + ".PNG");
+        assertThat(actualWeather.icon()).isEqualTo(conditionName + ".png");
     }
 
     @Then("API should throw an error {}")

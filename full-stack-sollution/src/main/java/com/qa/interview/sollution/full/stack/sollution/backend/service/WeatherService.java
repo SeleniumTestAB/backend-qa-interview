@@ -40,7 +40,7 @@ public class WeatherService {
     }
 
     private RequestSpecification specification() {
-        return RestAssured.with().accept(ContentType.JSON)
+        return RestAssured.with()
                 .contentType(ContentType.JSON)
                 .baseUri(testConfig.getBackendConfig().getApiUrl())
                 .basePath("/weather")
