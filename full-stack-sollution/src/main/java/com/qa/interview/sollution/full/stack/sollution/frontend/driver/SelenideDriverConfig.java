@@ -2,6 +2,7 @@ package com.qa.interview.sollution.full.stack.sollution.frontend.driver;
 
 import com.codeborne.selenide.SelenideConfig;
 import com.codeborne.selenide.SelenideDriver;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.qa.interview.sollution.full.stack.sollution.common.config.TestConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

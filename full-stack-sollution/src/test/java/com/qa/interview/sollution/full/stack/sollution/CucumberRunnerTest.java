@@ -20,7 +20,9 @@ public class CucumberRunnerTest extends AbstractTestNGCucumberTests {
 
     @BeforeAll()
     public void setup() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().includeSelenideSteps(true)
+                .screenshots(true)
+                .savePageSource(false));
     }
     @Override
     @DataProvider(parallel = true)
